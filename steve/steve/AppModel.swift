@@ -18,14 +18,17 @@ class AppModel: ObservableObject {
   @Published var yourText: String = ""
   
   // track whether whisper is ready
-  @Published var whisperIsReady: Bool = false
+  // just auto-set this to true since we're not using whisper
+  @Published var whisperIsReady: Bool = true
   
   @Published var waitingForResponse: Bool = false
   
   func getSteveResponse(_ text: String) async {
     // TODO: make API request once konrad has rigged up,
     // then get response
-    waitingForResponse = true
+    DispatchQueue.main.async {
+      self.waitingForResponse = true
+    }
     
     // TODO: once API rigged up should not just parrot response
     if let steveModel = steve {
@@ -34,7 +37,9 @@ class AppModel: ObservableObject {
       print("❌ steve Entity global variable not set for getSteveResponse call, bailing")
     }
     
-    waitingForResponse = false
+    DispatchQueue.main.async {
+      self.waitingForResponse = false
+    }
   }
 
   func makeSteveSay(text: String, _ steveEntity: Entity) async {

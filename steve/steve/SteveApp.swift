@@ -20,10 +20,11 @@ struct SteveApp: App {
         ContentView()
           .environmentObject(appModel)
           .task {
-            print("Loading WhisperKit on ContentView task")
-            whisperPipe = try? await WhisperKit(model: "large-v3_turbo_1307MB")
-            appModel.whisperIsReady = true
-            print("📢 Successfully initialized WhisperKit")
+            // WhisperKit is not up to the task, so we are disabling
+//            print("Loading WhisperKit on ContentView task")
+//            whisperPipe = try? await WhisperKit(model: "large-v3_turbo_1307MB")
+//            appModel.whisperIsReady = true
+//            print("📢 Successfully initialized WhisperKit")
           }
       }
 

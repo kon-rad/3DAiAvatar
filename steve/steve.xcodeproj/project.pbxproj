@@ -46,9 +46,9 @@
 		81340F032B8A70DA00FFF78D /* steveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = steveTests.swift; sourceTree = "<group>"; };
 		81A12EBF2B8A87DF00D4ACFE /* ElevenlabsSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenlabsSwift.swift; sourceTree = "<group>"; };
 		81A12EC12B8A8F9F00D4ACFE /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
-		EEFA711C2B8A95C400783920 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 		81A12EC62B8A986600D4ACFE /* sample_audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample_audio.mp3; sourceTree = "<group>"; };
 		81A12EC82B8A9B2300D4ACFE /* sample_audio2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample_audio2.mp3; sourceTree = "<group>"; };
+		EEFA711C2B8A95C400783920 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +272,7 @@
 /* Begin XCBuildConfiguration section */
 		81340F052B8A70DA00FFF78D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEFA711C2B8A95C400783920 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -335,6 +336,7 @@
 		};
 		81340F062B8A70DA00FFF78D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEFA711C2B8A95C400783920 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -397,7 +399,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"steve/Preview Content\"";
-				DEVELOPMENT_TEAM = 96Z3Z7NPAR;
+				DEVELOPMENT_TEAM = JB755UULPM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
@@ -424,7 +426,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"steve/Preview Content\"";
-				DEVELOPMENT_TEAM = 96Z3Z7NPAR;
+				DEVELOPMENT_TEAM = JB755UULPM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
