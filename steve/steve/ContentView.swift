@@ -22,9 +22,9 @@ struct ContentView: View {
             Model3D(named: "Scene", bundle: realityKitContentBundle)
                 .padding(.bottom, 50)
 
-            Text("Hello, world!")
+            Text("Are you ready to meet Steve?")
 
-            Toggle("Show Immersive Space", isOn: $showImmersiveSpace)
+            Toggle("Meet Steve", isOn: $showImmersiveSpace)
                 .toggleStyle(.button)
                 .padding(.top, 50)
         }
