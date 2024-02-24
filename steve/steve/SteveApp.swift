@@ -49,7 +49,8 @@ struct SteveApp: App {
               print("❌ No local mistral model file found, please download it from: https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/tree/main and drag into the steve/ directory in Xcode")
             }
           }
-      }
+      }.defaultSize(width: 600, height: 600)
+//          .windowStyle(.plain)
 
       ImmersiveSpace(id: "ImmersiveSpace") {
         ImmersiveView()
