@@ -26,7 +26,8 @@ struct SteveApp: App {
 //            appModel.whisperIsReady = true
 //            print("📢 Successfully initialized WhisperKit")
           }
-      }
+      }.defaultSize(width: 600, height: 600)
+//          .windowStyle(.plain)
 
       ImmersiveSpace(id: "ImmersiveSpace") {
         ImmersiveView()
