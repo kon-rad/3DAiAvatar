@@ -6,3 +6,4 @@ Packages/RealityKitContent/.swiftpm/*
 steve.xcodeproj/project.xcworkspace/*
 Packages/RealityKitContent/Package.realitycomposerpro/WorkspaceData/*.rcuserdata
 steve/Secrets.xcconfig
+*.xcconfig

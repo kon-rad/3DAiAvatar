@@ -15,7 +15,7 @@
 		81340EF62B8A70DA00FFF78D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81340EF52B8A70DA00FFF78D /* Assets.xcassets */; };
 		81340EF92B8A70DA00FFF78D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81340EF82B8A70DA00FFF78D /* Preview Assets.xcassets */; };
 		81340F042B8A70DA00FFF78D /* steveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81340F032B8A70DA00FFF78D /* steveTests.swift */; };
-		81A12EBD2B8A799400D4ACFE /* ElevenlabsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 81A12EBC2B8A799400D4ACFE /* ElevenlabsSwift */; };
+		81A12EC02B8A87DF00D4ACFE /* ElevenlabsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A12EBF2B8A87DF00D4ACFE /* ElevenlabsSwift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +41,7 @@
 		81340EFF2B8A70DA00FFF78D /* steveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = steveTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81340F032B8A70DA00FFF78D /* steveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = steveTests.swift; sourceTree = "<group>"; };
 		81A12EBE2B8A7A2E00D4ACFE /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		81A12EBF2B8A87DF00D4ACFE /* ElevenlabsSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenlabsSwift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +50,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				81340EEC2B8A70D800FFF78D /* RealityKitContent in Frameworks */,
-				81A12EBD2B8A799400D4ACFE /* ElevenlabsSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +93,7 @@
 				81340EF52B8A70DA00FFF78D /* Assets.xcassets */,
 				81340EFA2B8A70DA00FFF78D /* Info.plist */,
 				81340EF72B8A70DA00FFF78D /* Preview Content */,
+				81A12EBF2B8A87DF00D4ACFE /* ElevenlabsSwift.swift */,
 			);
 			path = steve;
 			sourceTree = "<group>";
@@ -139,7 +140,6 @@
 			name = steve;
 			packageProductDependencies = (
 				81340EEB2B8A70D800FFF78D /* RealityKitContent */,
-				81A12EBC2B8A799400D4ACFE /* ElevenlabsSwift */,
 			);
 			productName = steve;
 			productReference = 81340EE62B8A70D800FFF78D /* steve.app */;
@@ -231,6 +231,7 @@
 			files = (
 				81340EF02B8A70D800FFF78D /* ContentView.swift in Sources */,
 				81340EEE2B8A70D800FFF78D /* SteveApp.swift in Sources */,
+				81A12EC02B8A87DF00D4ACFE /* ElevenlabsSwift.swift in Sources */,
 				81340EF22B8A70D800FFF78D /* ImmersiveView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -518,11 +519,6 @@
 		81340EEB2B8A70D800FFF78D /* RealityKitContent */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RealityKitContent;
-		};
-		81A12EBC2B8A799400D4ACFE /* ElevenlabsSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 81A12EBB2B8A799400D4ACFE /* XCRemoteSwiftPackageReference "ElevenlabsSwift" */;
-			productName = ElevenlabsSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
