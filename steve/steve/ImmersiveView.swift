@@ -12,6 +12,8 @@ import RealityKit
 import RealityKitContent
 
 struct ImmersiveView: View {
+  @EnvironmentObject var appModel: AppModel
+
   var body: some View {
     RealityView { content in
       // Add the initial RealityKit content
@@ -48,9 +50,11 @@ struct ImmersiveView: View {
       let steveVoiceId = "Sq490XHHjzJSCEOLTxEV"
       
       do {
+        let steveText = "Hello, nice to meet you again after all these years."
+        
         let audioUrl = try await elevenApi.textToSpeech(
           voice_id: steveVoiceId,
-          text: "Hello, nice to meet you again after all these years.")
+          text: steveText)
         
         print("Got audio URL back from Eleven: ", audioUrl)
         
@@ -65,10 +69,12 @@ struct ImmersiveView: View {
           shouldRandomizeStartTime: false,
           normalization: .dynamic)
         
-        let resource = try await AudioFileResource.load(contentsOf: audioUrl,
-                                                        configuration: sfxConfig)
+        let resource = try AudioFileResource.load(contentsOf: audioUrl,
+                                                  configuration: sfxConfig)
         
-        await steveEntity.playAudio(resource)
+        steveEntity.playAudio(resource)
+        
+        appModel.steveText = steveText
       } catch {
         print("Got an error calling ElevenLabs API: ", error)
       }
