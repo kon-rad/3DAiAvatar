@@ -38,12 +38,13 @@ export async function POST(request: Request) {
     }
 
     const data = await fireworksResponse.json();
+    console.log("response data ", data);
+
+    return NextResponse.json({
+      message: data,
+    });
   } catch (error) {
     console.log("error", error);
     return NextResponse.json({ error: "Failed to ingest your data" });
   }
-
-  return NextResponse.json({
-    text: "hello world from chat/route",
-  });
 }
