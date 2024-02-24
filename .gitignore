@@ -3,6 +3,8 @@
 .AppleDouble
 .LSOverride
 
+.env
+
 # Thumbnails
 ._*
 
