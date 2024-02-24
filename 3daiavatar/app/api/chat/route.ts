@@ -1,9 +1,16 @@
 import { NextResponse } from "next/server";
+import { connectToDatabase } from "@/lib/mongodb";
 
 export async function POST(request: Request) {
   const requestBody = await request.json();
   console.log("requestBody ", requestBody);
 
+  const { db } = await connectToDatabase();
+  const avatars = await db.collection("avatars").find({}).toArray(); // This line automatically creates the 'avatars' collection if it doesn't exist.
+
+  res
+    .status(200)
+    .json({ message: "Avatars fetched successfully", data: avatars });
   try {
   } catch (error) {
     console.log("error", error);

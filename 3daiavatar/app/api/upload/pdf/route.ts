@@ -2,9 +2,6 @@ import { NextResponse } from "next/server";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { TogetherAIEmbeddings } from "@langchain/community/embeddings/togetherai";
 import { PDFLoader } from "langchain/document_loaders/fs/pdf";
-import { config } from "@/lib/utils/config";
-import { getUserData } from "@/lib/database/user";
-import { createDocumentUpload } from "@/lib/database/document-upload";
 import { MongoDBAtlasVectorSearch } from "@langchain/community/vectorstores/mongodb_atlas";
 import { MongoClient } from "mongodb";
 import { OpenAIEmbeddings } from "langchain/embeddings/openai";
@@ -15,9 +12,8 @@ if (!process.env.MONGODB_ATLAS_URI) {
 
 export async function POST(request: Request) {
   const requestBody = await request.json();
-  const { fileUrl, fileName } = requestBody;
+  const { fileUrl, fileName, avatarId } = requestBody;
   const aiCloneId = requestBody.aiCloneId || "";
-
 
   console.log(
     "api/write/pdf endpoint userId fileUrl, fileName: ",
@@ -30,7 +26,6 @@ export async function POST(request: Request) {
     fileUrl,
     aiCloneId,
   };
-
 
   try {
     /* load from remote pdf URL */
@@ -53,9 +48,9 @@ export async function POST(request: Request) {
         ...d,
         metadata: {
           ...(d.metadata || {}),
-          agenticDocId: doc.id,
-          agenticDocFileName: doc.fileName,
-          agenticDocTags: doc.tags,
+          avatarId: avatarId,
+          fileName: fileName,
+          fileUrl: fileUrl,
         },
       };
     });
@@ -69,7 +64,7 @@ export async function POST(request: Request) {
 
     const client = new MongoClient(process.env.MONGODB_ATLAS_URI || "");
 
-    const namespace = "aiavatar.documents";
+    const namespace = "aiclone.documents";
     const [dbName, collectionName] = namespace.split(".");
     const collection = client.db(dbName).collection(collectionName);
 
