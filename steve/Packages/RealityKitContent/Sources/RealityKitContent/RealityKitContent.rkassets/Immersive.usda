@@ -7,7 +7,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial"]
+    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial", "Steve"]
     def Sphere "Sphere_Right" (
         active = true
         prepend apiSchemas = ["MaterialBindingAPI"]
@@ -40,20 +40,20 @@ def Xform "Root"
 
     def "GridMaterial" (
         active = true
-        prepend references = @Materials/GridMaterial.usda@
+        references = @Materials/GridMaterial.usda@
     )
     {
         float3 xformOp:scale = (1, 1, 1)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 
-    def "steveJobs_unedited_" (
+    def "Steve" (
         active = true
-        prepend references = @steveJobs(unedited).usdz@
+        references = @steveJobs(unedited).usdz@
     )
     {
         float3 xformOp:scale = (0.01, 0.01, 0.01)
-        float3 xformOp:translate = (0, 0, 0)
+        float3 xformOp:translate = (0, 0, -1)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }
