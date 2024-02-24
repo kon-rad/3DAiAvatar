@@ -1,0 +1,113 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external drives
+.Spotlight-V100
+.DocumentRevisions-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.supported
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Node modules and Next.js build output
+/node_modules/
+/.pnp
+.pnp.js
+/next/
+/.next/
+/out/
+/build/
+/.vercel/
+
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.swp
+*.swo
+*.swn
+
+# Swift / Xcode
+.DS_Store
+*/xcuserdata/*
+*/DerivedData/
+
+# Swift Package Manager
+/.build/
+Package.resolved
+
+# CocoaPods
+/Pods/
+/Podfile.lock
+
+# Carthage
+/Carthage/
+/Carthage/Build
+
+# Fastlane
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
+*/fastlane/test_output
+
+# Build artifacts
+*.build/
+build/
+DerivedData/
+
+# Various Xcode files
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+*.xcworkspace
+!default.xcworkspace
+profile
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Playgrounds
+timeline.xcuserdata
+playground.xcworkspace
+
+# Swift PM
+.swiftpm/xcode/package.xcworkspace
+.swiftpm/xcode/xcshareddata
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
