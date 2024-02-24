@@ -29,17 +29,45 @@ struct ContentView: View {
         }
 
         Toggle(
-          showImmersiveSpace ? "Bye, Steve" : "Meet Steve",
+          showImmersiveSpace ? "Bye, Steve" : (
+            appModel.whisperIsReady ? "Meet Steve" : "Getting Ready"
+          ),
           isOn: $showImmersiveSpace)
             .toggleStyle(.button)
             .padding(.top, 30)
             .padding(.bottom, 30)
+            .disabled(!appModel.whisperIsReady)
       
         // placeholder to show your latest convo text
-        Text("Steve: \(appModel.steveText)")
-          .padding(.bottom, 30)
-        
-        Text("You: \(appModel.yourText)")
+        if showImmersiveSpace {
+          Text("Steve: \(appModel.steveText)")
+            .padding(.bottom, 30)
+          
+          Text("You: \(appModel.yourText)")
+            .padding(.bottom, 30)
+          
+          HStack {
+            TextField(
+              "Talk to Steve",
+              text: $appModel.yourText
+            )
+            .padding(.all, 16)
+            
+            Button(LocalizedStringKey("Send"),
+                   systemImage: "paperplane.circle.fill") {
+              // TODO: hook up LLM call to ask steve a question
+              print("Should send to steve")
+              
+              if steve != nil {
+                Task {
+                  await appModel.getSteveResponse(appModel.yourText)
+                }
+              } else {
+                print("steve entity global is not set, cannot call")
+              }
+            }
+          }.padding(.all, 16)
+        }
       }
       .padding()
       .onChange(of: showImmersiveSpace) { _, newValue in
