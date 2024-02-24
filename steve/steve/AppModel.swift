@@ -32,7 +32,20 @@ class AppModel: ObservableObject {
     
     // TODO: once API rigged up should not just parrot response
     if let steveModel = steve {
-      await makeSteveSay(text: text, steveModel)
+//      let promptText = "You are Steve Jobs, the founder of Apple Computer. \(text)"
+      let promptText = text
+      
+      // TODO: replace these with API-backed setup
+      if bot != nil {
+        print("Asking question to local LLM with prompt text: ", promptText)
+        let question = bot?.preProcess(promptText, [])
+        let answer = await bot!.getCompletion(from: question!)
+        print("Got answer from local LLM: ", answer)
+        await makeSteveSay(text: answer, steveModel)
+      } else {
+        print("Local LLM bot is nil, so just miming request for now")
+        await makeSteveSay(text: text, steveModel)
+      }
     } else {
       print("❌ steve Entity global variable not set for getSteveResponse call, bailing")
     }
