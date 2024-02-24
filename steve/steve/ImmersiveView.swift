@@ -6,7 +6,6 @@
 //
 
 import AVFoundation
-import ElevenlabsSwift
 import SwiftUI
 import RealityKit
 import RealityKitContent
@@ -17,6 +16,15 @@ struct ImmersiveView: View {
   var body: some View {
     RealityView { content in
       // Add the initial RealityKit content
+        
+        //skybox entity
+        guard let skyboxEntity = createSkyBox() else{
+            print("Error loading entity")
+            return
+        }
+        
+        content.add(skyboxEntity)
+        
       if let immersiveContentEntity = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
         content.add(immersiveContentEntity)
         
@@ -41,6 +49,37 @@ struct ImmersiveView: View {
     }
   }
   
+    
+    private func createSkyBox () -> Entity? {
+        // create mesh
+        let largeSphere = MeshResource.generateSphere(radius: 1000)
+        //add Material
+        var skyBoxMaterial = UnlitMaterial()
+        
+        do {
+            let texture = try TextureResource.load(named: "TheaterSkyBox")
+            skyBoxMaterial.color = .init(texture: .init(texture))
+            
+        } catch{
+            print("Error loading texture")
+        }
+        // skybox entity
+        let skyboxEntity = Entity()
+        skyboxEntity.components.set(ModelComponent(mesh: largeSphere, materials: [skyBoxMaterial]))
+        // Map texture to inner scale
+        skyboxEntity.scale *= .init(x:-1,y:1,z:1)
+        
+        // Define the angle by which you want to rotate the entity (in radians)
+        let angleInRadians = Float.pi / 2 // Rotating 90 degrees
+
+        // Create a quaternion rotation around the Y axis
+        let rotation = simd_quatf(angle: angleInRadians, axis: [0, 1, 0])
+        
+        skyboxEntity.transform.rotation =  rotation
+        
+        
+        return skyboxEntity
+    }
   func makeSteveSayHello(_ steveEntity: Entity) async {
     // POC: will have e2e sample of pipeline with eleven here via ElevenlabsSwift
     
