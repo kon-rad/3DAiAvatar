@@ -22,8 +22,8 @@ struct ContentView: View {
     var body: some View {
       VStack {
         if !showImmersiveSpace {
-          Model3D(named: "immersive", bundle: realityKitContentBundle)
-              .padding(.bottom, 50)
+//          Model3D(named: "steve", bundle: realityKitContentBundle)
+//              .padding(.bottom, 50)
             Image("steve-obit-pic").resizable().aspectRatio(contentMode: .fit).padding(.vertical,25)
         
             

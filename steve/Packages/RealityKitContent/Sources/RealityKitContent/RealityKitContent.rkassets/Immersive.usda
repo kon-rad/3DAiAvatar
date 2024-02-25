@@ -7,7 +7,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial", "Steve"]
+    reorder nameChildren = ["GridMaterial", "Steve", "Steve"]
     def "GridMaterial" (
         active = true
         references = @Materials/GridMaterial.usda@
@@ -19,12 +19,40 @@ def Xform "Root"
 
     def "Steve" (
         active = true
-        references = @steveJobs(unedited).usdz@
+        references = @steve-jobs-turtle.usdz@
     )
     {
+        reorder nameChildren = ["steveJobs_unedited_", "Materials", "Scene"]
         float3 xformOp:scale = (0.01, 0.01, 0.01)
         float3 xformOp:translate = (0, 0, -1)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Scene"
+        {
+            reorder nameChildren = ["apple_vision_pro_ios16", "Armature"]
+            def "apple_vision_pro_ios16" (
+                active = true
+                customData = {
+                    float3 rotationEulerHint = (0, -1.5707963, 0)
+                }
+                references = @apple_vision_pro_ios16.usdz@
+            )
+            {
+                quatf xformOp:orient = (0.70710677, 0, -0.70710677, 0)
+                float3 xformOp:scale = (0.8999997, 0.8999997, 0.8999997)
+                float3 xformOp:translate = (0, 175, 3)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+        }
+
+        over "mtl"
+        {
+            over "steveJobsArkitMorphs5_Wolf3D_Outfit_Top"
+            {
+                token outputs:mtlx:surface
+                token outputs:realitykit:vertex
+            }
+        }
     }
 }
 
