@@ -42,6 +42,7 @@ class AppModel: ObservableObject {
       request.httpMethod = "POST"
       request.addValue("application/json", forHTTPHeaderField: "Content-Type")
       
+      print("api request made: ", text)
       // Prepare the request body
       let requestBody = ["message": text]
       do {

@@ -69,10 +69,14 @@ export async function POST(request: Request) {
     }
 
     const data = await fireworksResponse.json();
+    console.log("data::::: ", data);
+
+    const respMessage = data.choices[0].message.content;
     console.log("response data ", data);
+    console.log("response respMessage ", respMessage);
 
     return NextResponse.json({
-      message: data,
+      message: respMessage,
     });
   } catch (error) {
     console.log("error", error);
