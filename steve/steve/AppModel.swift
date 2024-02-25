@@ -97,8 +97,48 @@ class AppModel: ObservableObject {
           await makeSteveSay(text: text, steveModel)
         }
       } else {
-        print("TODO: add server API request here")
-        await makeSteveSay(text: text, steveModel)
+        // Construct the URL for the API
+        guard let url = URL(string: "https://3-d-ai-avatar.vercel.app/api/chat") else {
+            print("Invalid URL")
+            return
+        }
+        
+        // Prepare the request
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        print("api request made: ", text)
+        // Prepare the request body
+        let requestBody = ["message": text]
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: requestBody, options: [])
+        } catch {
+            print("Failed to serialize request body: \(error)")
+            return
+        }
+        
+        // Perform the request
+        do {
+            let (data, _) = try await URLSession.shared.data(for: request)
+            
+            // Assuming the response body will be in the format: {"message": "responseText"}
+            if let responseBody = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: String],
+               let responseText = responseBody["message"] {
+                print("response text: ", responseText)
+                
+                // If `steve` is a global variable of type Entity and `makeSteveSay` is a method that takes a text and an Entity
+                if let steveModel = steve {
+                    print("makeSteveSay response text: ", responseText)
+                    
+                    await makeSteveSay(text: responseText, steveModel)
+                } else {
+                    print("❌ steve Entity global variable not set for getSteveResponse call, bailing")
+                }
+            }
+        } catch {
+            print("Failed to fetch data: \(error)")
+        }
       }
     } else {
       print("❌ steve Entity global variable not set for getSteveResponse call, bailing")
