@@ -178,6 +178,8 @@ class AppModel: ObservableObject {
         let resource = try await AudioFileResource.load(contentsOf: audioUrl,
                                                   configuration: sfxConfig)
         
+        // first stop all audio
+        await steveEntity.stopAllAudio()
         await steveEntity.playAudio(resource)
         
         DispatchQueue.main.async {
