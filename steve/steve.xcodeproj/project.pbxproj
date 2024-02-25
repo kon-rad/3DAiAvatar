@@ -20,6 +20,7 @@
 		81A12EC52B8A963300D4ACFE /* WhisperKit in Frameworks */ = {isa = PBXBuildFile; productRef = 81A12EC42B8A963300D4ACFE /* WhisperKit */; };
 		81A12EC72B8A986600D4ACFE /* sample_audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A12EC62B8A986600D4ACFE /* sample_audio.mp3 */; };
 		81A12EC92B8A9B2300D4ACFE /* sample_audio2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A12EC82B8A9B2300D4ACFE /* sample_audio2.mp3 */; };
+		81A12ECD2B8AB05400D4ACFE /* LLM in Frameworks */ = {isa = PBXBuildFile; productRef = 81A12ECC2B8AB05400D4ACFE /* LLM */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		81A12EC12B8A8F9F00D4ACFE /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		81A12EC62B8A986600D4ACFE /* sample_audio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample_audio.mp3; sourceTree = "<group>"; };
 		81A12EC82B8A9B2300D4ACFE /* sample_audio2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sample_audio2.mp3; sourceTree = "<group>"; };
+		81A12ECA2B8AAFD400D4ACFE /* mistral-7b-instruct-v0.2.Q4_K_M.gguf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mistral-7b-instruct-v0.2.Q4_K_M.gguf"; sourceTree = "<group>"; };
 		EEFA711C2B8A95C400783920 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81A12ECD2B8AB05400D4ACFE /* LLM in Frameworks */,
 				81A12EC52B8A963300D4ACFE /* WhisperKit in Frameworks */,
 				81340EEC2B8A70D800FFF78D /* RealityKitContent in Frameworks */,
 			);
@@ -101,6 +104,7 @@
 				EEFA711C2B8A95C400783920 /* Secrets.xcconfig */,
 				81A12EC62B8A986600D4ACFE /* sample_audio.mp3 */,
 				81A12EC82B8A9B2300D4ACFE /* sample_audio2.mp3 */,
+				81A12ECA2B8AAFD400D4ACFE /* mistral-7b-instruct-v0.2.Q4_K_M.gguf */,
 				81340EF32B8A70D800FFF78D /* ImageBasedLighting.skybox */,
 				81340EF52B8A70DA00FFF78D /* Assets.xcassets */,
 				81340EFA2B8A70DA00FFF78D /* Info.plist */,
@@ -152,6 +156,7 @@
 			packageProductDependencies = (
 				81340EEB2B8A70D800FFF78D /* RealityKitContent */,
 				81A12EC42B8A963300D4ACFE /* WhisperKit */,
+				81A12ECC2B8AB05400D4ACFE /* LLM */,
 			);
 			productName = steve;
 			productReference = 81340EE62B8A70D800FFF78D /* steve.app */;
@@ -205,6 +210,7 @@
 			mainGroup = 81340EDD2B8A70D800FFF78D;
 			packageReferences = (
 				81A12EC32B8A95E500D4ACFE /* XCRemoteSwiftPackageReference "whisperkit" */,
+				81A12ECB2B8AB05400D4ACFE /* XCRemoteSwiftPackageReference "LLM" */,
 			);
 			productRefGroup = 81340EE72B8A70D800FFF78D /* Products */;
 			projectDirPath = "";
@@ -399,7 +405,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"steve/Preview Content\"";
-				DEVELOPMENT_TEAM = 96Z3Z7NPAR;
+				DEVELOPMENT_TEAM = JB755UULPM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
@@ -426,7 +432,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"steve/Preview Content\"";
-				DEVELOPMENT_TEAM = 96Z3Z7NPAR;
+				DEVELOPMENT_TEAM = JB755UULPM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
@@ -528,6 +534,14 @@
 				kind = branch;
 			};
 		};
+		81A12ECB2B8AB05400D4ACFE /* XCRemoteSwiftPackageReference "LLM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/eastriverlee/LLM.swift/";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -539,6 +553,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 81A12EC32B8A95E500D4ACFE /* XCRemoteSwiftPackageReference "whisperkit" */;
 			productName = WhisperKit;
+		};
+		81A12ECC2B8AB05400D4ACFE /* LLM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81A12ECB2B8AB05400D4ACFE /* XCRemoteSwiftPackageReference "LLM" */;
+			productName = LLM;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

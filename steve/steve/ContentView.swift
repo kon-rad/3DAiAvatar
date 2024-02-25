@@ -43,6 +43,11 @@ struct ContentView: View {
       
         // placeholder to show your latest convo text
         if showImmersiveSpace {
+          Toggle("Use local model?", isOn: $appModel.useLocalModel)
+            .padding(.leading, 16)
+            .padding(.trailing, 16)
+            .padding(.bottom, 30)
+          
           Text("Steve: \(appModel.steveText)")
             .padding(.bottom, 30)
           
@@ -56,7 +61,7 @@ struct ContentView: View {
             )
             .padding(.all, 16)
             
-            Button(LocalizedStringKey("Send"),
+            Button(LocalizedStringKey(appModel.waitingForResponse ? "Loading..." : "Ask Steve"),
                    systemImage: "paperplane.circle.fill") {
               // TODO: hook up LLM call to ask steve a question
               print("Should send to steve")
@@ -70,6 +75,7 @@ struct ContentView: View {
               }
             }
           }.padding(.all, 16)
+            .disabled(appModel.waitingForResponse)
         }
       }
       .padding()
