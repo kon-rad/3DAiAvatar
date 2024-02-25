@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "steve-icon-back.png",
       "idiom" : "vision",
       "scale" : "2x"
     }
