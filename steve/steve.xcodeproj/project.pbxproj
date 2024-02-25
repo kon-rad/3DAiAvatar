@@ -21,7 +21,6 @@
 		81A12EC72B8A986600D4ACFE /* sample_audio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A12EC62B8A986600D4ACFE /* sample_audio.mp3 */; };
 		81A12EC92B8A9B2300D4ACFE /* sample_audio2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81A12EC82B8A9B2300D4ACFE /* sample_audio2.mp3 */; };
 		81A12ECD2B8AB05400D4ACFE /* LLM in Frameworks */ = {isa = PBXBuildFile; productRef = 81A12ECC2B8AB05400D4ACFE /* LLM */; };
-		81A12ECE2B8AB46000D4ACFE /* mistral-7b-instruct-v0.2.Q4_K_M.gguf in Resources */ = {isa = PBXBuildFile; fileRef = 81A12ECA2B8AAFD400D4ACFE /* mistral-7b-instruct-v0.2.Q4_K_M.gguf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,7 +232,6 @@
 				81340EF92B8A70DA00FFF78D /* Preview Assets.xcassets in Resources */,
 				81340EF42B8A70D800FFF78D /* ImageBasedLighting.skybox in Resources */,
 				81A12EC92B8A9B2300D4ACFE /* sample_audio2.mp3 in Resources */,
-				81A12ECE2B8AB46000D4ACFE /* mistral-7b-instruct-v0.2.Q4_K_M.gguf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,7 +405,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"steve/Preview Content\"";
-				DEVELOPMENT_TEAM = 96Z3Z7NPAR;
+				DEVELOPMENT_TEAM = JB755UULPM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
@@ -434,7 +432,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"steve/Preview Content\"";
-				DEVELOPMENT_TEAM = 96Z3Z7NPAR;
+				DEVELOPMENT_TEAM = JB755UULPM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";

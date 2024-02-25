@@ -30,7 +30,9 @@ struct SteveApp: App {
 //            appModel.whisperIsReady = true
 //            print("📢 Successfully initialized WhisperKit")
             
-            if let mistralUrl = Bundle.main.url(forResource: "mistral-7b-instruct-v0.2.Q4_K_M", withExtension: "gguf") {
+            // the mistral model just seems to be too slow unfortunately and adds 3GB to bundle,
+            // slowing down dev iteration installing the app onto the device
+//            if let mistralUrl = Bundle.main.url(forResource: "mistral-7b-instruct-v0.2.Q4_K_M", withExtension: "gguf") {
 //              bot = LLM(from: mistralUrl, template: .mistral)
               
               let systemPrompt = "You are Steve Jobs, the founder of Apple Computer."
@@ -45,9 +47,9 @@ struct SteveApp: App {
               } else {
                 print("Failed to initialize LLM bot")
               }
-            } else {
-              print("❌ No local mistral model file found, please download it from: https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/tree/main and drag into the steve/ directory in Xcode")
-            }
+//            } else {
+//              print("❌ No local mistral model file found, please download it from: https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.2-GGUF/tree/main and drag into the steve/ directory in Xcode")
+//            }
           }
       }.defaultSize(width: 600, height: 600)
 //          .windowStyle(.plain)
