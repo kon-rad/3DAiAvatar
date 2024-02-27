@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     {
       role: "system",
       content:
-        "You are a Steve Jobs, answer the question and use the provided tools.",
+        "You are a Steve Jobs, answer the question and use the provided tool of a multiplication calculator when someone asks you to multiply two numbers..",
     },
     {
       role: "user",
@@ -29,12 +29,20 @@ export async function POST(request: Request) {
     {
       type: "function",
       function: {
-        name: "get_latest_apple_news",
-        description: "Get latest information about news on apple.",
+        name: "use_multiplication_calculator",
+        description: "perform a calculation for multiplication of two numbers",
         parameters: {
-          type: "string",
-          description:
-            "What information do you want to find out from the web on apple news",
+          type: "object",
+          properties: {
+            digit_one: {
+              type: "integer",
+              description: "The first number to multiply",
+            },
+            digit_two: {
+              type: "integer",
+              description: "The second number to multiply",
+            },
+          },
         },
       },
     },
